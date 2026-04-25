@@ -95,9 +95,6 @@ export default function TaskModal({ isOpen, onClose, onSave, task }: TaskModalPr
           {/* Header */}
           <div className="px-8 py-6 bg-slate-50 border-b border-slate-100 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-medical-brand/10 rounded-xl text-medical-brand">
-                <Shield className="w-6 h-6" />
-              </div>
               <div>
                 <h2 className="text-base font-bold text-slate-900">{task ? '编辑任务' : '新建任务'}</h2>
                 <p className="text-xs text-slate-500">配置医疗培训任务与激励参数</p>
@@ -117,7 +114,7 @@ export default function TaskModal({ isOpen, onClose, onSave, task }: TaskModalPr
             {/* Task Name */}
             <div className="space-y-2">
               <label className="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                <Target className="w-4 h-4 text-medical-brand" /> 任务名称
+                任务名称
               </label>
               <input
                 type="text"
@@ -132,7 +129,7 @@ export default function TaskModal({ isOpen, onClose, onSave, task }: TaskModalPr
               {/* Reward Points */}
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                  <Award className="w-4 h-4 text-medical-brand" /> 奖励医豆
+                  奖励医豆
                 </label>
                 <input
                   type="number"
@@ -146,7 +143,7 @@ export default function TaskModal({ isOpen, onClose, onSave, task }: TaskModalPr
               {/* Task Type */}
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                  <Shield className="w-4 h-4 text-medical-brand" /> 任务类型
+                  任务类型
                 </label>
                 <select 
                   value={type}
@@ -164,7 +161,7 @@ export default function TaskModal({ isOpen, onClose, onSave, task }: TaskModalPr
             {/* Audience */}
             <div className="space-y-2">
               <label className="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                <Users className="w-4 h-4 text-medical-brand" /> 受众群体
+                受众群体
               </label>
               <select 
                 value={audience}
@@ -182,7 +179,7 @@ export default function TaskModal({ isOpen, onClose, onSave, task }: TaskModalPr
             {/* Validity Period */}
             <div className="space-y-2">
               <label className="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                <Calendar className="w-4 h-4 text-medical-brand" /> 有效期设置
+                有效期设置
               </label>
               <div className="grid grid-cols-2 gap-4">
                 <input
