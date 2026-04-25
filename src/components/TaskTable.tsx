@@ -34,7 +34,7 @@ const StatusBadge = ({ status }: { status: Task['status'] }) => {
   };
 
   return (
-    <span className={`flex items-center gap-1.5 text-xs ${styles[status]}`}>
+    <span className={`flex items-center gap-1.5 text-sm ${styles[status]}`}>
       <span className={`w-1.5 h-1.5 rounded-full ${dotColors[status]}`}></span>
       {labels[status]}
     </span>
@@ -50,7 +50,7 @@ const TypeBadge = ({ type }: { type: string }) => {
   };
 
   return (
-    <span className={`px-2 py-1 text-[10px] font-bold rounded border uppercase tracking-tight ${getStyle(type)}`}>
+    <span className={`px-2 py-1 text-xs font-bold rounded border uppercase tracking-tight ${getStyle(type)}`}>
       {type}
     </span>
   );
@@ -111,10 +111,8 @@ export default function TaskTable({ tasks, onDelete, onMoveToDraft, onEdit, onVi
               <th className="px-4 py-4">受众群体</th>
               <th className="px-4 py-4">有效期</th>
               <th className="px-4 py-4">完成进度</th>
-              <th className="px-4 py-4">状态</th>
-              <th className="px-6 py-4 text-right">
-                <div className="inline-block w-28 text-left">操作</div>
-              </th>
+              <th className="pl-12 pr-4 py-4">状态</th>
+              <th className="pl-12 pr-4 py-4 text-left">操作</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-100">
@@ -148,13 +146,13 @@ export default function TaskTable({ tasks, onDelete, onMoveToDraft, onEdit, onVi
                       className={`h-1.5 rounded-full ${task.progress === 100 ? 'bg-emerald-500' : 'bg-emerald-400'}`}
                     />
                   </div>
-                  <span className="text-[10px] text-slate-400 mt-1 block">{task.progress}%</span>
+                  <span className="text-xs text-slate-400 mt-1 block">{task.progress}%</span>
                 </td>
-                <td className="px-4 py-5">
+                <td className="px-2 py-5 pl-12 pr-4">
                   <StatusBadge status={task.status} />
                 </td>
-                <td className="px-6 py-5 text-right">
-                  <div className="inline-flex justify-start gap-4 text-xs font-medium w-28">
+                <td className="px-2 py-5 pl-12 pr-4">
+                  <div className="flex items-center gap-4 text-sm font-medium">
                     <button 
                       onClick={() => onEdit(task)}
                       className="text-slate-400 hover:text-medical-brand transition-colors"

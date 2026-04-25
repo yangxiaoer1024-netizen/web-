@@ -38,7 +38,7 @@ export default function TaskDataModal({ isOpen, onClose, task }: TaskDataModalPr
               <BarChart3 className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-slate-900">任务数据分析</h3>
+              <h3 className="text-base font-bold text-slate-900">任务数据分析</h3>
               <p className="text-xs text-slate-400">正在查看: {task.name}</p>
             </div>
           </div>
@@ -63,7 +63,7 @@ export default function TaskDataModal({ isOpen, onClose, task }: TaskDataModalPr
                   <stat.icon className="w-5 h-5" />
                 </div>
                 <p className="text-xs text-slate-400 font-medium">{stat.label}</p>
-                <h4 className="text-xl font-bold text-slate-900 mt-1">{stat.value}</h4>
+                <h4 className="text-base font-bold text-slate-900 mt-1">{stat.value}</h4>
               </div>
             ))}
           </div>
@@ -73,7 +73,7 @@ export default function TaskDataModal({ isOpen, onClose, task }: TaskDataModalPr
             <div className="flex items-center justify-between">
               <h4 className="text-sm font-bold text-slate-900">参与活跃度趋势 (近7天)</h4>
               <div className="flex gap-2">
-                <span className="flex items-center gap-1.5 text-[10px] text-slate-400">
+                <span className="flex items-center gap-1.5 text-xs text-slate-400">
                   <span className="w-2 h-2 rounded-full bg-medical-brand"></span>
                   完成次数
                 </span>
@@ -94,13 +94,13 @@ export default function TaskDataModal({ isOpen, onClose, task }: TaskDataModalPr
                     dataKey="day" 
                     axisLine={false} 
                     tickLine={false} 
-                    tick={{ fontSize: 10, fill: '#94a3b8' }} 
+                    tick={{ fontSize: 12, fill: '#94a3b8' }} 
                     dy={10}
                   />
                   <YAxis 
                     axisLine={false} 
                     tickLine={false} 
-                    tick={{ fontSize: 10, fill: '#94a3b8' }}
+                    tick={{ fontSize: 12, fill: '#94a3b8' }}
                   />
                   <Tooltip 
                     contentStyle={{ 

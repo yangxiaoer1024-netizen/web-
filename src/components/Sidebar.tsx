@@ -39,7 +39,7 @@ export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
     <div className="w-64 bg-sidebar-bg h-screen flex flex-col fixed left-0 top-0 shadow-xl z-20">
       <div className="p-6 flex items-center gap-3">
         <Activity className="w-8 h-8 text-medical-brand" />
-        <span className="text-white font-bold text-lg tracking-wider">华医网后台管理</span>
+        <span className="text-white font-bold text-base tracking-wider">华医网后台管理</span>
       </div>
 
       <nav className="mt-4 flex-1 px-4 space-y-1 overflow-y-auto scrollbar-hide">

@@ -314,10 +314,10 @@ export default function App() {
                     </button>
                   )}
                   <div>
-                    <h1 className="text-2xl font-bold text-slate-900 tracking-tight">
+                    <h1 className="text-base font-bold text-slate-900 tracking-tight">
                       {currentView === 'all' ? '医豆任务列表' : '草稿箱'}
                     </h1>
-                    <p className="text-sm text-slate-500 mt-1">
+                    <p className="text-xs text-slate-500 mt-1">
                       {currentView === 'all' 
                         ? '管理医疗培训与日常考核的医豆激励任务' 
                         : '管理尚未发布的医豆任务草稿'}
@@ -328,12 +328,12 @@ export default function App() {
                   {currentView === 'all' && (
                     <button 
                       onClick={() => setCurrentView('drafts')}
-                      className="px-4 py-2 text-slate-600 rounded-lg hover:text-medical-brand transition-all flex items-center gap-2 active:scale-95 group font-medium"
+                      className="px-4 py-2 text-slate-600 rounded-lg hover:text-medical-brand transition-all flex items-center gap-2 active:scale-95 group font-medium text-sm"
                     >
                       <Inbox className="w-5 h-5 text-slate-400 group-hover:text-medical-brand" />
                       草稿箱
                       {tasks.filter(t => t.status === 'draft').length > 0 && (
-                        <span className="ml-1 px-1.5 py-0.5 bg-red-50 text-red-600 text-[10px] rounded-full border border-red-100 flex items-center justify-center min-w-[18px]">
+                        <span className="ml-1 px-1.5 py-0.5 bg-red-50 text-red-600 text-xs rounded-full border border-red-100 flex items-center justify-center min-w-[18px]">
                           {tasks.filter(t => t.status === 'draft').length}
                         </span>
                       )}
@@ -341,7 +341,7 @@ export default function App() {
                   )}
                   <button 
                     onClick={() => { setEditingTask(null); setIsModalOpen(true); }}
-                    className="px-6 py-2.5 bg-medical-brand text-white rounded-lg shadow-lg shadow-emerald-900/10 hover:opacity-90 font-medium transition-all flex items-center gap-2 active:scale-95"
+                    className="px-6 py-2.5 bg-medical-brand text-white rounded-lg shadow-lg shadow-emerald-900/10 hover:opacity-90 font-medium transition-all flex items-center gap-2 active:scale-95 text-sm"
                   >
                     <Plus className="w-5 h-5" />
                     新建任务
@@ -370,8 +370,8 @@ export default function App() {
               className="space-y-8"
             >
               <header>
-                <h1 className="text-2xl font-bold text-slate-900 tracking-tight">首页总览</h1>
-                <p className="text-sm text-slate-500 mt-1">实时观测医疗平台运行核心指标与数据动态</p>
+                <h1 className="text-base font-bold text-slate-900 tracking-tight">首页总览</h1>
+                <p className="text-xs text-slate-500 mt-1">实时观测医疗平台运行核心指标与数据动态</p>
               </header>
 
               <div className="grid grid-cols-4 gap-6">
@@ -387,8 +387,8 @@ export default function App() {
                         <stat.icon className="w-6 h-6" />
                       </div>
                       <div>
-                        <p className="text-sm text-slate-500 font-medium">{stat.label}</p>
-                        <h3 className="text-2xl font-bold text-slate-900">{stat.value}</h3>
+                        <p className="text-xs text-slate-500 font-medium">{stat.label}</p>
+                        <h3 className="text-base font-bold text-slate-900">{stat.value}</h3>
                       </div>
                     </div>
                     <p className="text-xs text-slate-400">{stat.sub}</p>
@@ -397,14 +397,14 @@ export default function App() {
               </div>
 
               <div className="grid grid-cols-3 gap-6">
-                <div className="col-span-2 bg-white rounded-2xl border border-slate-200 p-8 h-80 flex items-center justify-center text-slate-300 font-medium">
+                <div className="col-span-2 bg-white rounded-2xl border border-slate-200 p-8 h-80 flex items-center justify-center text-slate-300 font-medium text-sm">
                   数据趋势图表 (占位)
                 </div>
                 <div className="bg-white rounded-2xl border border-slate-200 p-6">
-                  <h4 className="font-bold text-slate-900 mb-4">最近动态</h4>
+                  <h4 className="font-bold text-slate-900 mb-4 text-sm">最近动态</h4>
                   <div className="space-y-4">
                     {[1, 2, 3, 4].map(i => (
-                      <div key={i} className="flex gap-3 text-sm">
+                      <div key={i} className="flex gap-3 text-xs">
                         <div className="w-2 h-2 rounded-full bg-medical-brand mt-1.5 shrink-0" />
                         <div>
                           <p className="text-slate-700">心内科 <strong>张医生</strong> 完成了《高血压临床防治指南》</p>
@@ -431,10 +431,10 @@ export default function App() {
                 {activeTab === 'courses' && <GraduationCap className="w-10 h-10 text-slate-400" />}
                 {activeTab === 'settings' && <Settings className="w-10 h-10 text-slate-400" />}
               </div>
-              <h2 className="text-2xl font-bold text-slate-900">
+              <h2 className="text-base font-bold text-slate-900">
                 {activeTab === 'users' ? '用户管理系统' : activeTab === 'courses' ? '课程管理广场' : '系统设置'}
               </h2>
-              <p className="text-slate-500 mt-2 max-w-sm">
+              <p className="text-sm text-slate-500 mt-2 max-w-sm">
                 该模块正在建设中。您可以在此管理医院{activeTab === 'users' ? '医生及其权限' : activeTab === 'courses' ? '的继续教育课程流' : '的基础运行参数'}。
               </p>
             </motion.div>

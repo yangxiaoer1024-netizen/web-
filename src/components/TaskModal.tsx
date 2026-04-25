@@ -99,8 +99,8 @@ export default function TaskModal({ isOpen, onClose, onSave, task }: TaskModalPr
                 <Shield className="w-6 h-6" />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-slate-900">{task ? '编辑任务' : '新建任务'}</h2>
-                <p className="text-sm text-slate-500">配置医疗培训任务与激励参数</p>
+                <h2 className="text-base font-bold text-slate-900">{task ? '编辑任务' : '新建任务'}</h2>
+                <p className="text-xs text-slate-500">配置医疗培训任务与激励参数</p>
               </div>
             </div>
             <button
