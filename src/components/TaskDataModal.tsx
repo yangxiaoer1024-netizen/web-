@@ -39,7 +39,7 @@ export default function TaskDataModal({ isOpen, onClose, task }: TaskDataModalPr
             </div>
             <div>
               <h3 className="text-base font-bold text-slate-900">任务数据分析</h3>
-              <p className="text-xs text-slate-400">正在查看: {task.name}</p>
+              <p className="text-sm text-slate-400">正在查看: {task.name}</p>
             </div>
           </div>
           <button 
@@ -62,7 +62,7 @@ export default function TaskDataModal({ isOpen, onClose, task }: TaskDataModalPr
                 <div className={`${stat.bg} ${stat.color} w-8 h-8 rounded-lg flex items-center justify-center mb-3`}>
                   <stat.icon className="w-5 h-5" />
                 </div>
-                <p className="text-xs text-slate-400 font-medium">{stat.label}</p>
+                <p className="text-sm text-slate-400 font-medium">{stat.label}</p>
                 <h4 className="text-base font-bold text-slate-900 mt-1">{stat.value}</h4>
               </div>
             ))}
@@ -107,7 +107,7 @@ export default function TaskDataModal({ isOpen, onClose, task }: TaskDataModalPr
                       borderRadius: '12px', 
                       border: 'none', 
                       boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)',
-                      fontSize: '12px'
+                      fontSize: '14px'
                     }} 
                   />
                   <Area 

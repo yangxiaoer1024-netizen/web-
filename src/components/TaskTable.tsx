@@ -50,7 +50,7 @@ const TypeBadge = ({ type }: { type: string }) => {
   };
 
   return (
-    <span className={`px-2 py-1 text-xs font-bold rounded border uppercase tracking-tight ${getStyle(type)}`}>
+    <span className={`px-2 py-1 text-sm font-bold rounded border uppercase tracking-tight ${getStyle(type)}`}>
       {type}
     </span>
   );
@@ -104,7 +104,7 @@ export default function TaskTable({ tasks, onDelete, onMoveToDraft, onEdit, onVi
       <div className="overflow-x-auto">
         <table className="w-full text-left">
           <thead className="bg-slate-50 border-b border-slate-200">
-            <tr className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+            <tr className="text-sm font-semibold text-slate-500 uppercase tracking-wider">
               <th className="px-6 py-4">任务名称</th>
               <th className="px-4 py-4 text-center">奖励医豆</th>
               <th className="px-4 py-4">任务类型</th>
@@ -146,7 +146,7 @@ export default function TaskTable({ tasks, onDelete, onMoveToDraft, onEdit, onVi
                       className={`h-1.5 rounded-full ${task.progress === 100 ? 'bg-emerald-500' : 'bg-emerald-400'}`}
                     />
                   </div>
-                  <span className="text-xs text-slate-400 mt-1 block">{task.progress}%</span>
+                  <span className="text-sm text-slate-400 mt-1 block">{task.progress}%</span>
                 </td>
                 <td className="px-2 py-5 pl-12 pr-4">
                   <StatusBadge status={task.status} />
@@ -180,7 +180,7 @@ export default function TaskTable({ tasks, onDelete, onMoveToDraft, onEdit, onVi
       </div>
       
       <div className="mt-auto border-t border-slate-100 px-6 py-4 flex justify-between items-center bg-slate-50/30 font-sans">
-        <span className="text-xs text-slate-500">
+        <span className="text-sm text-slate-500">
           显示第 {tasks.length === 0 ? 0 : startIndex + 1} 至 {Math.min(startIndex + ITEMS_PER_PAGE, tasks.length)} 条任务，共 {tasks.length} 条
         </span>
         <div className="flex gap-1">
@@ -198,7 +198,7 @@ export default function TaskTable({ tasks, onDelete, onMoveToDraft, onEdit, onVi
               <button 
                 key={pageNum}
                 onClick={() => setCurrentPage(pageNum)}
-                className={`px-3 py-1 text-xs font-bold rounded transition-all border ${
+                className={`px-3 py-1 text-sm font-bold rounded transition-all border ${
                   currentPage === pageNum 
                     ? 'bg-medical-brand text-white border-medical-brand' 
                     : 'bg-transparent text-slate-600 border-transparent hover:bg-white hover:border-slate-200'

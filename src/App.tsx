@@ -317,7 +317,7 @@ export default function App() {
                     <h1 className="text-base font-bold text-slate-900 tracking-tight">
                       {currentView === 'all' ? '医豆任务列表' : '草稿箱'}
                     </h1>
-                    <p className="text-xs text-slate-500 mt-1">
+                    <p className="text-sm text-slate-500 mt-1">
                       {currentView === 'all' 
                         ? '管理医疗培训与日常考核的医豆激励任务' 
                         : '管理尚未发布的医豆任务草稿'}
@@ -371,7 +371,7 @@ export default function App() {
             >
               <header>
                 <h1 className="text-base font-bold text-slate-900 tracking-tight">首页总览</h1>
-                <p className="text-xs text-slate-500 mt-1">实时观测医疗平台运行核心指标与数据动态</p>
+                <p className="text-sm text-slate-500 mt-1">实时观测医疗平台运行核心指标与数据动态</p>
               </header>
 
               <div className="grid grid-cols-4 gap-6">
@@ -387,11 +387,11 @@ export default function App() {
                         <stat.icon className="w-6 h-6" />
                       </div>
                       <div>
-                        <p className="text-xs text-slate-500 font-medium">{stat.label}</p>
+                        <p className="text-sm text-slate-500 font-medium">{stat.label}</p>
                         <h3 className="text-base font-bold text-slate-900">{stat.value}</h3>
                       </div>
                     </div>
-                    <p className="text-xs text-slate-400">{stat.sub}</p>
+                    <p className="text-sm text-slate-400">{stat.sub}</p>
                   </div>
                 ))}
               </div>
@@ -404,11 +404,11 @@ export default function App() {
                   <h4 className="font-bold text-slate-900 mb-4 text-sm">最近动态</h4>
                   <div className="space-y-4">
                     {[1, 2, 3, 4].map(i => (
-                      <div key={i} className="flex gap-3 text-xs">
+                      <div key={i} className="flex gap-3 text-sm">
                         <div className="w-2 h-2 rounded-full bg-medical-brand mt-1.5 shrink-0" />
                         <div>
-                          <p className="text-slate-700">心内科 <strong>张医生</strong> 完成了《高血压临床防治指南》</p>
-                          <p className="text-xs text-slate-400 mt-0.5">10分钟前</p>
+                          <p className="text-slate-700 text-sm">心内科 <strong>张医生</strong> 完成了《高血压临床防治指南》</p>
+                          <p className="text-sm text-slate-400 mt-0.5">10分钟前</p>
                         </div>
                       </div>
                     ))}
@@ -455,7 +455,7 @@ export default function App() {
           task={dataViewingTask}
         />
 
-        <footer className="mt-auto pt-8 text-center text-slate-400 text-xs tracking-wide">
+        <footer className="mt-auto pt-8 text-center text-slate-400 text-sm tracking-wide">
           <p>© 2024 华医网后台管理平台. All Rights Reserved.</p>
         </footer>
       </main>
