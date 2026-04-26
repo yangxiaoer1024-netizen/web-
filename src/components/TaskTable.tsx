@@ -155,19 +155,19 @@ export default function TaskTable({ tasks, onDelete, onMoveToDraft, onEdit, onVi
                   <div className="flex items-center gap-4 text-sm font-medium">
                     <button 
                       onClick={() => onEdit(task)}
-                      className="text-slate-400 hover:text-medical-brand transition-colors"
+                      className="text-blue-600 hover:text-blue-700 transition-colors"
                     >
                       编辑
                     </button>
                     <button 
                       onClick={() => onViewData(task)}
-                      className="text-slate-400 hover:text-medical-brand transition-colors"
+                      className="text-blue-600 hover:text-blue-700 transition-colors"
                     >
                       数据
                     </button>
                     <button 
                       onClick={() => handleDeleteClick(task.id)}
-                      className="text-slate-400 hover:text-red-600 transition-colors"
+                      className="text-red-600 hover:text-red-700 transition-colors"
                     >
                       删除
                     </button>
