@@ -2,6 +2,7 @@ import { X, Calendar, Target, Users, Award, Shield } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, FormEvent, useEffect } from 'react';
 import { Task } from '../types';
+import { supabase } from '../lib/supabase';
 
 interface TaskModalProps {
   isOpen: boolean;
@@ -18,6 +19,7 @@ export default function TaskModal({ isOpen, onClose, onSave, task }: TaskModalPr
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [status, setStatus] = useState<Task['status']>('draft');
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (task) {
@@ -43,7 +45,7 @@ export default function TaskModal({ isOpen, onClose, onSave, task }: TaskModalPr
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     
     if (!name.trim()) {
@@ -59,6 +61,31 @@ export default function TaskModal({ isOpen, onClose, onSave, task }: TaskModalPr
     if (!startDate || !endDate) {
       alert('请设置有效期');
       return;
+    }
+
+    // Save to Supabase if configured
+    if (supabase) {
+      setLoading(true);
+      const taskData = {
+        id: task?.id,
+        name,
+        points: parseInt(points),
+        type,
+        audience,
+        validity: `${startDate} 至 ${endDate}`,
+        status,
+      };
+
+      const { error } = await supabase.from('tasks').upsert(taskData);
+      setLoading(false);
+      
+      if (error) {
+        console.error('Error saving task:', error);
+        alert('保存失败: ' + error.message);
+        return;
+      }
+    } else {
+      console.warn('Supabase not configured, skipping database save.');
     }
 
     onSave({
@@ -236,9 +263,10 @@ export default function TaskModal({ isOpen, onClose, onSave, task }: TaskModalPr
             </button>
             <button
               type="submit"
-              className="px-8 py-2.5 bg-medical-brand text-white font-bold rounded-xl shadow-lg shadow-emerald-900/10 hover:opacity-90 active:scale-95 transition-all"
+              disabled={loading}
+              className="px-8 py-2.5 bg-medical-brand text-white font-bold rounded-xl shadow-lg shadow-emerald-900/10 hover:opacity-90 active:scale-95 transition-all disabled:opacity-50"
             >
-              {task ? '保存更改' : '创建任务'}
+              {loading ? '保存中...' : (task ? '保存更改' : '创建任务')}
             </button>
           </div>
           </form>
