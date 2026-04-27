@@ -324,6 +324,7 @@ export default function App() {
   const [isDataModalOpen, setIsDataModalOpen] = useState(false);
   const [tasks, setTasks] = useState<Task[]>(INITIAL_TASKS);
   const [currentView, setCurrentView] = useState<'all' | 'drafts'>('all');
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   const filteredTasks = currentView === 'all' 
     ? tasks 
@@ -337,6 +338,7 @@ export default function App() {
           ? { ...t, ...taskData } as Task
           : t
       ));
+      setSuccessMessage('任务已成功更新');
     } else {
       // Create new task
       const newTask: Task = {
@@ -345,7 +347,12 @@ export default function App() {
         progress: 0,
       };
       setTasks(prev => [newTask, ...prev]);
+      setSuccessMessage('已成功创建任务');
     }
+    
+    // Clear message after 0.5 seconds
+    setTimeout(() => setSuccessMessage(null), 500);
+
     setIsModalOpen(false);
     setEditingTask(null);
   };
@@ -559,6 +566,25 @@ export default function App() {
           <p>© 2024 华医网后台管理平台. All Rights Reserved.</p>
         </footer>
       </main>
+
+      {/* Floating Success Notification */}
+      <AnimatePresence>
+        {successMessage && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, x: '-50%', y: '-50%' }}
+            animate={{ opacity: 1, scale: 1, x: '-50%', y: '-50%' }}
+            exit={{ opacity: 0, scale: 0.9, x: '-50%', y: '-50%' }}
+            className="fixed top-1/2 left-1/2 z-50 px-6 py-3 bg-emerald-600 text-white rounded-2xl shadow-xl shadow-emerald-900/30 flex items-center gap-3 font-medium border border-white/20"
+          >
+            <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center shrink-0">
+              <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <span className="tracking-wide text-sm">{successMessage}</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
